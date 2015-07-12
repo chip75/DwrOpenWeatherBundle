@@ -4,7 +4,6 @@ namespace Dwr\GlobalWeatherBundle\Controller;
 
 use Dwr\GlobalWeatherBundle\Entity\Location;
 use Dwr\GlobalWeatherBundle\Form\GlobalWeatherType;
-use Dwr\GlobalWeatherBundle\Form\LocationChoice;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/globalweather")
+     * @Route("/dwr-global-weather")
      */
     public function indexAction(Request $request)
     {
@@ -21,7 +20,8 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            die(__FILE__.'\\'.__LINE__);
+            $globalWeather = $this->get('dwr_global_weather');
+            $globalWeather->getCurrentWeather($location);
         }
 
         return $this->render('DwrGlobalWeatherBundle:Default:index.html.twig', array(

@@ -24,7 +24,8 @@ class LocationChoice extends LazyChoiceList
         foreach($locations as $country => $cities)
         {
             foreach ($cities as $city) {
-                $data[] = sprintf('%s, %s', $country, $city);
+                $location = sprintf('%s, %s', $country, $city);
+                $data[$location] = $location;
             }
         }
 
