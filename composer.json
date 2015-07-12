@@ -1,0 +1,28 @@
+{
+  "name":         "dwr/globalweather-bundle",
+  "description":  "Symfony2 bundle which presents current weather based on Global Weather soap service.",
+  "keywords":     ["weather", "global weather", "weather soap client"],
+  "homepage":     "https://github.com/dariuszwrzesien/DwrGlobalWeatherBundle",
+  "type":         "symfony-bundle",
+  "license":      "MIT",
+  "authors": [
+    {
+      "name":     "Dariusz Wrzesien",
+      "email":    "dariuszwrzesien@gmail.com",
+      "homepage": "https://github.com/dariuszwrzesien/DwrAvatarBundle"
+    }
+  ],
+  "require": {
+    "symfony/framework-bundle": "2.7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.7.*"
+  },
+  "suggest": {
+    "symfony/twig-bundle": "2.*"
+  },
+  "autoload": {
+    "psr-0": { "Dwr\\GlobalWeatherBundle": "" }
+  },
+  "target-dir": "Dwr/GlobalWeatherBundle"
+}
