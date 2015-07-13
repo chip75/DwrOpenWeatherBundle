@@ -1,8 +1,9 @@
 <?php
-namespace Dwr\GlobalWeatherBundle\Form;
+namespace Dwr\GlobalWeatherBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Dwr\GlobalWeatherBundle\Form\LocationChoice;
 
 class GlobalWeatherType extends AbstractType
 {

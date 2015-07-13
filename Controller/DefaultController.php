@@ -3,7 +3,7 @@
 namespace Dwr\GlobalWeatherBundle\Controller;
 
 use Dwr\GlobalWeatherBundle\Entity\Location;
-use Dwr\GlobalWeatherBundle\Form\GlobalWeatherType;
+use Dwr\GlobalWeatherBundle\Form\Type\GlobalWeatherType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

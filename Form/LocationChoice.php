@@ -1,9 +1,9 @@
 <?php
 namespace Dwr\GlobalWeatherBundle\Form;
 
-use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList,
-    Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList,
-    Symfony\Component\Yaml\Parser;
+use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList;
+use Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList;
+use Symfony\Component\Yaml\Parser;
 
 class LocationChoice extends LazyChoiceList
 {
