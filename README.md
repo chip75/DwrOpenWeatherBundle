@@ -51,7 +51,7 @@ public function registerBundles()
 
 ### Step 3: Add locations where you would like to check current weather
 
-In order to add your own locations add example code in your app/config/config.yml.
+In order to add your own locations add example code in your **app/config/config.yml**.
 
 Example:
 ``` yml
@@ -64,9 +64,10 @@ dwr_global_weather_locations:
 For more locations you will need to check official Global Weather site where you can find supported location.
 
 Global Weather Webservice: http://www.webservicex.net/ws/WSDetails.aspx?CATID=12&WSID=56
-If you want get cities by country try this: http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry
-Try to get Weather by city and country: http://www.webservicex.net/globalweather.asmx?op=GetWeather  
 
+If you want get cities by country try this: http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry
+
+Try to get Weather by city and country: http://www.webservicex.net/globalweather.asmx?op=GetWeather
 
 #### Hint
 
