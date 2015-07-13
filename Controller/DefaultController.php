@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/dwr-global-weather")
+     * @Route("/globalweather")
      *
      * @param Request $request
      * @return Response
