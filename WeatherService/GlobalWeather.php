@@ -1,19 +1,47 @@
 <?php
 namespace Dwr\GlobalWeatherBundle\WeatherService;
 
+use Dwr\GlobalWeatherBundle\Utility\ParserXML;
 use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient;
 use Dwr\GlobalWeatherBundle\Entity\Location;
 
 class GlobalWeather
 {
+    /**
+     * @var \SoapClient
+     */
     private $globalWeatherClient;
 
-    public function __construct(GlobalWeatherClient $client)
+    /**
+     * @var ParserXML
+     */
+    private $parserXML;
+
+    /**
+     * @param GlobalWeatherClient $client
+     * @param ParserXML $parserXML
+     */
+    public function __construct(GlobalWeatherClient $client, ParserXML $parserXML)
     {
         $this->globalWeatherClient = $client->connect();
+        $this->parserXML = $parserXML;
     }
 
+    /**
+     * @param Location $location
+     * @return boolean|\SimpleXMLElement
+     */
     public function getCurrentWeather(Location $location)
+    {
+        $xml = $this->getWeatherResultXML($location);
+        return $this->parserXML->parseXML($xml);
+    }
+
+    /**
+     * @param Location $location
+     * @return boolean
+     */
+    private function getWeatherResultXML(Location $location)
     {
         try {
             $globalWeather = $this->globalWeatherClient->GetWeather(
@@ -22,12 +50,9 @@ class GlobalWeather
                     'CountryName' => $location->getCountry()
                 ]
             );
-
-            var_dump($globalWeather->GetWeatherResult);
-
             return $globalWeather->GetWeatherResult;
         } catch (\Exception $e) {
-            var_dump($e->getMessage());
+            return false;
         }
     }
 }

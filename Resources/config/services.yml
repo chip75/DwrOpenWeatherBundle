@@ -5,14 +5,22 @@ parameters:
       wsdl: http://www.webservicex.net/globalweather.asmx?WSDL
       timeout: 10
    dwr_global_weather_locations:
-      Poland: [Katowice, Krakow]
+      Australia: [Sydney Airport]
       Germany: [Berlin]
+      Japan: [Tokyo]
+      Poland: [Katowice, Krakow, Warszawa-Okecie]
+      Russian Federation: [Moscow]
+      Spain: [Barcelona, Fuerteventura, Las Palmas De Gran Canaria / Gando]
+      United States: [New York]
 
 services:
     dwr_global_weather_client:
         class: Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient
         arguments: ["%dwr_global_weather_configuration%"]
 
+    dwr_global_weather_parserXML:
+        class: Dwr\GlobalWeatherBundle\Utility\ParserXML
+
     dwr_global_weather:
         class: Dwr\GlobalWeatherBundle\WeatherService\GlobalWeather
-        arguments: ["@dwr_global_weather_client"]
+        arguments: ["@dwr_global_weather_client", "@dwr_global_weather_parserXML"]
