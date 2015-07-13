@@ -64,8 +64,10 @@ dwr_global_weather_locations:
 For more locations you will need to check official Global Weather site where you can find supported location.
 
 Global Weather Webservice: [Global Weather](http://www.webservicex.net/ws/WSDetails.aspx?CATID=12&WSID=56)
+
 If you want get cities by country try this: [GetCitiesByCountry](http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry)
-Try to get Weather by city and country: [GetWeather](http://www.webservicex.net/globalweather.asmx?op=GetWeather)
+
+Try to get Weather by city and country: [GetWeather](http://www.webservicex.net/globalweather.asmx?op=GetWeather)  
 
 #### Hint
 
