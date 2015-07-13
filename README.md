@@ -71,7 +71,7 @@ Try to get Weather by city and country: [GetWeather](http://www.webservicex.net/
 
 #### Hint
 
-Default locations are defined in vendor/dwr/globalweather-bundle/Dwr/GlobalWeatherBundle/Resources/config/services.yml
+Default locations are defined in ~~vendor/dwr/globalweather-bundle/Dwr/GlobalWeatherBundle/Resources/config/services.yml~~
 and they look like that:
 
 ``` yml
@@ -95,4 +95,4 @@ dwr_global_weather:
 ```
 
 Congratulations! You're ready to embed weather widget in your symfony2 application.
-Example how this widget works you can find on: yours-application-url/dwr_globalweather/globalweather.
+Example how this widget works you can find on: **yours-application-url/dwr_globalweather/globalweather**.
