@@ -7,22 +7,27 @@ use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList,
 
 class LocationChoice extends LazyChoiceList
 {
-
-    public function loadChoiceList ()
+    /**
+     * @return SimpleChoiceList
+     */
+    public function loadChoiceList()
     {
-        $parser = new Parser();
-        $config = $parser->parse(file_get_contents(__DIR__ . '/../Resources/config/services.yml'));
+        $parser    = new Parser();
+        $config    = $parser->parse(file_get_contents(__DIR__ . '/../Resources/config/services.yml'));
         $locations = $config['parameters']['dwr_global_weather_locations'];
-        $choices = $this->getLocationCities($locations);
+        $choices   = $this->getLocationCities($locations);
 
         return new SimpleChoiceList($choices);
     }
 
+    /**
+     * @param $locations
+     * @return array
+     */
     private function getLocationCities($locations)
     {
         $data = [];
-        foreach($locations as $country => $cities)
-        {
+        foreach ($locations as $country => $cities) {
             foreach ($cities as $city) {
                 $location = sprintf('%s, %s', $country, $city);
                 $data[$location] = $location;
