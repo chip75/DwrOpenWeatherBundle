@@ -47,6 +47,7 @@ public function registerBundles()
         new Dwr\GlobalWeatherBundle\DwrGlobalWeatherBundle(),
     );
 }
+```
 
 ### Step 3: Add locations where you would like to check current weather
 
@@ -64,7 +65,7 @@ For more locations you will need to check official Global Weather site where you
 
 Global Weather Webservice: http://www.webservicex.net/ws/WSDetails.aspx?CATID=12&WSID=56
 If you want get cities by country try this: http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry
-Try to get Weather by city and country: http://www.webservicex.net/globalweather.asmx?op=GetWeather
+Try to get Weather by city and country: http://www.webservicex.net/globalweather.asmx?op=GetWeather  
 
 
 #### Hint
@@ -93,4 +94,4 @@ dwr_global_weather:
 ```
 
 Congratulations! You're ready to embed weather widget in your symfony2 application.
-Example how this widget looks like you can find on: yours-application-url/dwr_globalweather/globalweather.
+Example how this widget works you can find on: yours-application-url/dwr_globalweather/globalweather.
