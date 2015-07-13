@@ -29,5 +29,4 @@ class Location
     {
         return trim($this->city);
     }
-
 }

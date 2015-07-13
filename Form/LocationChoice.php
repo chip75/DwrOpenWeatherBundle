@@ -36,5 +36,4 @@ class LocationChoice extends LazyChoiceList
 
         return $data;
     }
-
 }
