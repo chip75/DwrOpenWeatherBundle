@@ -16,7 +16,7 @@ Installation is a quick 4 steps process:
 
 Add DwrGlobalWeatherBundle in your composer.json:
 
-```js
+``` js
 {
     "require": {
         "dwr/globalweather-bundle": "1.0"
@@ -37,8 +37,7 @@ Composer will install the bundle into your project's `vendor/dwr/globalweather-b
 Enable the bundle in the kernel:
 
 ``` php
-<?php
-// app/AppKernel.php
+//app/AppKernel.php
 
 public function registerBundles()
 {
@@ -71,7 +70,7 @@ Try to get Weather by city and country: [GetWeather](http://www.webservicex.net/
 
 #### Hint
 
-Default locations are defined in ~~vendor/dwr/globalweather-bundle/Dwr/GlobalWeatherBundle/Resources/config/services.yml~~
+Default locations are defined in *vendor/dwr/globalweather-bundle/Dwr/GlobalWeatherBundle/Resources/config/services.yml*
 and they look like that:
 
 ``` yml
@@ -94,5 +93,14 @@ dwr_global_weather:
     prefix:   /dwr_globalweather
 ```
 
-Congratulations! You're ready to embed weather widget in your symfony2 application.
+**Congratulations!** You're ready to embed weather widget in your symfony2 application.
 Example how this widget works you can find on: **yours-application-url/dwr_globalweather/globalweather**.
+
+## **Usage**
+
+Napisać jak podpiać do controllera i opisać co się dzieje w widoku
+
+### **Ajax**
+
+Opisac jak mozna zrobić aby controller był wywoływany z ajaxA
+
