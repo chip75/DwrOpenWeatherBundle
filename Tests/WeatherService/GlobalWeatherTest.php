@@ -86,7 +86,7 @@ class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
 
         $clientMock->expects($this->once())
             ->method('connect')
-            ->will($this->returnValue(new \SoapClient(null, ['location'=>'fakeLocation', 'uri' => 'fakeUri'])));
+            ->will($this->returnValue(new \SoapClient(null, ['location'=>'fakeLocation', 'uri'=>'fakeUri'])));
 
         return $clientMock;
     }
