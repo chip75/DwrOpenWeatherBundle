@@ -24,6 +24,7 @@ class GlobalWeatherClient
 
     /**
      * @return \SoapClient
+     * @throws \Exception
      */
     public function connect()
     {

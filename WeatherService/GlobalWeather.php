@@ -50,7 +50,6 @@ class GlobalWeather
                     'CountryName' => $location->getCountry()
                 ]
             );
-
             return $globalWeather->GetWeatherResult;
         } catch (\Exception $e) {
             return false;

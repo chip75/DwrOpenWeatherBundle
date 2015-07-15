@@ -5,6 +5,7 @@ use Dwr\GlobalWeatherBundle\Entity\Location;
 use Dwr\GlobalWeatherBundle\Utility\ParserXML;
 use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient;
 use Dwr\GlobalWeatherBundle\WeatherService\GlobalWeather;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,12 +40,9 @@ class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expectedTemperature, (string)$currentWeather->Temperature);
     }
 
-    public function _testIfGetCurrentWeatherReturnsFalseWhenErrorConnection()
+    public function testIfGetCurrentWeatherReturnsFalseWhenErrorConnection()
     {
-        $globalWeather = new GlobalWeather($this->getGlobalWeatherConnectionErrorMock(), new ParserXML());
-
-        var_dump($globalWeather->getCurrentWeather(new Location()));
-        die(__FILE__.'\\'.__LINE__);
+        $globalWeather = new GlobalWeather($this->getGlobalWeatherErrorConnection(), new ParserXML());
 
         $this->assertFalse($globalWeather->getCurrentWeather(new Location()));
     }
@@ -53,6 +51,7 @@ class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
     {
         $clientMock = $this->getMockBuilder('Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient')
             ->disableOriginalConstructor()
+            ->setMethods(array('connect'))
             ->getMock();
 
         $clientMock->expects($this->once())
@@ -78,15 +77,17 @@ class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
         return $soapServiceMock;
     }
 
-    private function getGlobalWeatherConnectionErrorMock()
+    private function getGlobalWeatherErrorConnection()
     {
         $clientMock = $this->getMockBuilder('Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient')
             ->disableOriginalConstructor()
+            ->setMethods(array('connect'))
             ->getMock();
 
         $clientMock->expects($this->once())
             ->method('connect')
-            ->will($this->returnValue(new \Exception('Connection Error')));
+            ->will($this->returnValue(new \SoapClient(null, ['location'=>'fakeLocation', 'uri' => 'fakeUri'])));
+
         return $clientMock;
     }
 }
