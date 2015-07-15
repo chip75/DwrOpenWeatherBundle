@@ -2,7 +2,7 @@
 namespace Dwr\GlobalWeatherBundle\WeatherService;
 
 use Dwr\GlobalWeatherBundle\Utility\ParserXML;
-use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient;
+use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient as GlobalWeatherClient;
 use Dwr\GlobalWeatherBundle\Entity\Location;
 
 class GlobalWeather
@@ -50,6 +50,7 @@ class GlobalWeather
                     'CountryName' => $location->getCountry()
                 ]
             );
+
             return $globalWeather->GetWeatherResult;
         } catch (\Exception $e) {
             return false;
