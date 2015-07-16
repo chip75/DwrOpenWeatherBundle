@@ -2,10 +2,9 @@
 ======================
 [![Build Status](https://travis-ci.org/dariuszwrzesien/DwrGlobalWeatherBundle.svg?branch=master)](https://travis-ci.org/dariuszwrzesien/DwrGlobalWeatherBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/?branch=master)
-
+[![Coverage Status](https://coveralls.io/repos/dariuszwrzesien/DwrGlobalWeatherBundle/badge.svg?branch=master&service=github)](https://coveralls.io/github/dariuszwrzesien/DwrGlobalWeatherBundle?branch=master)
 
 # **DwrGlobalWeather**
-======================
 
 This bundle creates weather widget in your application.
 
