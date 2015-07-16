@@ -3,7 +3,6 @@ namespace Dwr\GlobalWeatherBundle\Tests;
 
 use Dwr\GlobalWeatherBundle\Entity\Location;
 use Dwr\GlobalWeatherBundle\Utility\ParserXML;
-use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient;
 use Dwr\GlobalWeatherBundle\WeatherService\GlobalWeather;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
@@ -57,6 +56,7 @@ class GlobalWeatherTest extends \PHPUnit_Framework_TestCase
         $clientMock->expects($this->once())
             ->method('connect')
             ->will($this->returnValue($this->getGlobalWeatherSoapServiceMock($expectedResponseXML)));
+
         return $clientMock;
     }
 

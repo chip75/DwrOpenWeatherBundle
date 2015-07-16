@@ -1,7 +1,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c/big.png)](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c)
 ======================
 
-This bundle allows create weather widget in your application.
+This bundle creates weather widget in your application.
 
 ## **Installation**
 
@@ -98,9 +98,62 @@ Example how this widget works you can find on: **yours-application-url/dwr_globa
 
 ## **Usage**
 
-Napisać jak podpiać do controllera i opisać co się dzieje w widoku
+### **Create weather widget on your website**
 
-### **Ajax**
+Add this in your controller
 
-Opisac jak mozna zrobić aby controller był wywoływany z ajaxA
+``` php
 
+// ...
+
+use Dwr\GlobalWeatherBundle\Entity\Location;
+use Dwr\GlobalWeatherBundle\Form\Type\GlobalWeatherType;
+use Symfony\Component\HttpFoundation\Request;
+
+// ...
+
+    public function indexAction(Request $request)
+    {
+        $weather = null;
+        
+        $location = new Location();
+        $form = $this->createForm(new GlobalWeatherType(), $location);
+        
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $globalWeather = $this->get('dwr_global_weather');
+            $weather = $globalWeather->getCurrentWeather($location);
+        }
+        return $this->render('AppBundle:Default:index.html.twig', array(
+            'form' => $form->createView(),
+            'weather' => $weather
+        ));
+    }
+
+```
+
+View (twig) (e.g *AppBundle:Default:index.html.twig*)
+
+
+``` jinja
+{{ form(form) }}
+{% if weather %}
+    <ul>
+        <li>Location: {{ weather.Location|default('') }}</li>
+        <li>Time: {{ weather.Time|default('') }}</li>
+        <li>Wind: {{ weather.Wind|default('') }}</li>
+        <li>Visibility: {{ weather.Visibility|default('') }}</li>
+        <li>SkyConditions: {{ weather.SkyConditions|default('') }}</li>
+        <li>Temperature: {{ weather.Temperature|default('') }}</li>
+        <li>DewPoint: {{ weather.DewPoint|default('') }}</li>
+        <li>RelativeHumidity: {{ weather.RelativeHumidity|default('') }}</li>
+        <li>Pressure: {{ weather.Pressure|default('') }}</li>
+        <li>Status: {{ weather.Status|default('') }}</li>
+    </ul>
+{% endif %}
+```
+
+If everything went good you should see form with dropdown list (contains cities) and submit button.
+When you choose city and submit form yu should see something like that
+
+![Widget example #1](Resources/doc/dwr_global_weather_result.jpg)&nbsp;&nbsp;
