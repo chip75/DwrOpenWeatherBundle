@@ -58,10 +58,10 @@ public function registerBundles()
 ~~In order to add your own locations add example code in your **app/config/config.yml**.~~
 
 ~~Example:~~
-~~``` yml
+``` yml
 dwr_global_weather_locations:
       United States: [New York]
-```~~
+```
 #### Find supported locations
 
 For more locations you will need to check official Global Weather site where you can find supported location.
