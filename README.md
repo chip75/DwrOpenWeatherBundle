@@ -1,5 +1,6 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c/big.png)](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c)
 ======================
+[![Build Status](https://travis-ci.org/dariuszwrzesien/DwrGlobalWeatherBundle.svg?branch=master)](https://travis-ci.org/dariuszwrzesien/DwrGlobalWeatherBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/?branch=master)
 
 
