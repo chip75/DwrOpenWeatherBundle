@@ -53,16 +53,15 @@ public function registerBundles()
 }
 ```
 
-~~### Step 3: Add locations where you would like to check current weather
+### ~~Step 3: Add locations where you would like to check current weather~~
 
-In order to add your own locations add example code in your **app/config/config.yml**.
+~~In order to add your own locations add example code in your **app/config/config.yml**.~~
 
-Example:
-``` yml
+~~Example:~~
+~~``` yml
 dwr_global_weather_locations:
       United States: [New York]
-```
-~~
+```~~
 #### Find supported locations
 
 For more locations you will need to check official Global Weather site where you can find supported location.
