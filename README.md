@@ -2,7 +2,10 @@
 ======================
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrGlobalWeatherBundle/?branch=master)
 
+
+# **DwrGlobalWeather**
 ======================
+
 This bundle creates weather widget in your application.
 
 ## **Installation**
@@ -158,4 +161,5 @@ View (twig) (e.g *AppBundle:Default:index.html.twig*)
 If everything went good you should see form with dropdown list (contains cities) and submit button.
 When you choose city and submit form yu should see something like that
 
+**Output**
 ![Widget example #1](Resources/doc/dwr_global_weather_result.jpg)&nbsp;&nbsp;
