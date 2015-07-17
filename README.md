@@ -59,8 +59,10 @@ In order to add your own locations assign example code to **parameters** attribu
 
 **Example:**
 ``` yml
-parameters:
-    dwr_global_weather_locations:
+parameters:                             // You should have parameters attribute in your app/config/config.yml if not, feel free to add it.
+    dwr_global_weather_locations:       // dwr_global_weather_location overwrite default location defined in bundle
+        Poland: [Katowice, Krakow]      // ad your location e.g Country: [City1, City2]
+        Russian Federation: [Moscow]
         United States: [New York]
 ```
 #### Find supported locations
