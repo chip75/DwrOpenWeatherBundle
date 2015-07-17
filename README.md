@@ -53,7 +53,7 @@ public function registerBundles()
 }
 ```
 
-### ~~Step 3: Add locations where you would like to check current weather~~
+### Step 3: Add locations where you would like to check current weather
 
 In order to add your own locations assign example code to **parameters** attribute in your **app/config/config.yml**.
 
