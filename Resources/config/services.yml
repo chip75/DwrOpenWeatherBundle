@@ -24,3 +24,11 @@ services:
     dwr_global_weather:
         class: Dwr\GlobalWeatherBundle\WeatherService\GlobalWeather
         arguments: ["@dwr_global_weather_client", "@dwr_global_weather_parserXML"]
+
+    dwr_global_weather_location_choice:
+        class: Dwr\GlobalWeatherBundle\Form\LocationChoice
+        arguments: ["%dwr_global_weather_locations%"]
+
+    dwr_global_weather_form_type:
+        class: Dwr\GlobalWeatherBundle\Form\Type\GlobalWeatherType
+        arguments: ["@dwr_global_weather_location_choice"]

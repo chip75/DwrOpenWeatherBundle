@@ -55,12 +55,13 @@ public function registerBundles()
 
 ### ~~Step 3: Add locations where you would like to check current weather~~
 
-~~In order to add your own locations add example code in your **app/config/config.yml**.~~
+In order to add your own locations assign example code to **parameters** attribute in your **app/config/config.yml**.
 
-~~Example:~~
+**Example:**
 ``` yml
-dwr_global_weather_locations:
-      United States: [New York]
+parameters:
+    dwr_global_weather_locations:
+        United States: [New York]
 ```
 #### Find supported locations
 
@@ -118,17 +119,21 @@ use Symfony\Component\HttpFoundation\Request;
 
     public function indexAction(Request $request)
     {
-        $weather = null;
-        
+        $weather  = null;
         $location = new Location();
-        $form = $this->createForm(new GlobalWeatherType(), $location);
-        
+
+        $form = $this->createForm(
+            $this->get('dwr_global_weather_form_type'),
+            $location
+        );
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $globalWeather = $this->get('dwr_global_weather');
             $weather = $globalWeather->getCurrentWeather($location);
         }
-        return $this->render('AppBundle:Default:index.html.twig', array(
+
+        return $this->render('DwrGlobalWeatherBundle:Default:index.html.twig', array(
             'form' => $form->createView(),
             'weather' => $weather
         ));
@@ -157,8 +162,7 @@ View (twig) (e.g *AppBundle:Default:index.html.twig*)
 {% endif %}
 ```
 
-If everything went good you should see form with dropdown list (contains cities) and submit button.
-When you choose city and submit form yu should see something like that
+If everything went good you should see form with drop-down list (contains cities) and submit button.
+When you choose city and submit form, you should see something like that
 
-**Output**
-![Widget example #1](Resources/doc/dwr_global_weather_result.jpg)&nbsp;&nbsp;
+![Widget example #1](Resources/doc/dwr_global_weather_result.jpg)

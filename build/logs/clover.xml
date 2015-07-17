@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1437068746">
-  <project timestamp="1437068746">
+<coverage generated="1437152581">
+  <project timestamp="1437152581">
     <package name="Dwr\GlobalWeatherBundle\Entity">
       <file name="/var/www/dwr-globalweather-bundle/src/Dwr/GlobalWeatherBundle/Entity/Location.php">
         <class name="Location" namespace="Dwr\GlobalWeatherBundle\Entity">
