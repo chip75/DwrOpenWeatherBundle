@@ -3,13 +3,13 @@ namespace Dwr\GlobalWeatherBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList;
+use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
 
 class GlobalWeatherType extends AbstractType
 {
     private $locationChoice;
 
-    public function __construct(LazyChoiceList $locationChoice)
+    public function __construct(ChoiceListInterface $locationChoice)
     {
         $this->locationChoice = $locationChoice;
     }

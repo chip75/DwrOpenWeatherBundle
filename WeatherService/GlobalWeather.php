@@ -2,8 +2,8 @@
 namespace Dwr\GlobalWeatherBundle\WeatherService;
 
 use Dwr\GlobalWeatherBundle\Utility\ParserXML;
-use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient as GlobalWeatherClient;
 use Dwr\GlobalWeatherBundle\Entity\Location;
+use Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient as GlobalWeatherClient;
 
 class GlobalWeather
 {
