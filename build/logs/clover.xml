@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1437207305">
-  <project timestamp="1437207305">
+<coverage generated="1437241555">
+  <project timestamp="1437241555">
     <package name="Dwr\GlobalWeatherBundle\Entity">
       <file name="/var/www/dwr-globalweather-bundle/src/Dwr/GlobalWeatherBundle/Entity/Location.php">
         <class name="Location" namespace="Dwr\GlobalWeatherBundle\Entity">
@@ -70,7 +70,7 @@
     <package name="Dwr\GlobalWeatherBundle\WeatherService\Client">
       <file name="/var/www/dwr-globalweather-bundle/src/Dwr/GlobalWeatherBundle/WeatherService/Client/GlobalWeatherClient.php">
         <class name="GlobalWeatherClient" namespace="Dwr\GlobalWeatherBundle\WeatherService\Client">
-          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+          <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
         </class>
         <line num="19" type="method" name="__construct" crap="2" count="0"/>
         <line num="21" type="stmt" count="0"/>
@@ -79,8 +79,9 @@
         <line num="29" type="method" name="connect" crap="2" count="0"/>
         <line num="31" type="stmt" count="0"/>
         <line num="32" type="stmt" count="0"/>
-        <line num="34" type="stmt" count="0"/>
-        <metrics loc="36" ncloc="23" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <metrics loc="37" ncloc="24" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
       </file>
     </package>
     <package name="Dwr\GlobalWeatherBundle\WeatherService">
@@ -660,6 +661,6 @@
       <line num="76" type="stmt" count="0"/>
       <metrics loc="78" ncloc="26" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="4" coveredelements="0"/>
     </file>
-    <metrics files="15" loc="2875" ncloc="1441" classes="10" methods="116" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="452" coveredstatements="102" elements="568" coveredelements="125"/>
+    <metrics files="15" loc="2876" ncloc="1442" classes="10" methods="116" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="453" coveredstatements="102" elements="569" coveredelements="125"/>
   </project>
 </coverage>
