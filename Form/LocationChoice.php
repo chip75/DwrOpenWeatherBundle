@@ -3,20 +3,23 @@ namespace Dwr\GlobalWeatherBundle\Form;
 
 use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList;
 use Symfony\Component\Form\Extension\Core\ChoiceList\LazyChoiceList;
-use Symfony\Component\Yaml\Parser;
 
 class LocationChoice extends LazyChoiceList
 {
+
+    private $locationParameters;
+
+    public function __construct(array $locationParameters)
+    {
+        $this->locationParameters = $locationParameters;
+    }
+
     /**
      * @return SimpleChoiceList
      */
     public function loadChoiceList()
     {
-        $parser    = new Parser();
-        $config    = $parser->parse(file_get_contents(__DIR__ . '/../Resources/config/services.yml'));
-        $locations = $config['parameters']['dwr_global_weather_locations'];
-        $choices   = $this->getLocationCities($locations);
-
+        $choices = $this->getLocationCities($this->locationParameters);
         return new SimpleChoiceList($choices);
     }
 

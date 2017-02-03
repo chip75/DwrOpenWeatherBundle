@@ -3,7 +3,7 @@ checks:
         code_rating: true
         duplication: true
 filter:
-    paths: [/*]
+    paths: [WeatherService/*, Utility/*, Entity/*, Form/*]
     excluded_paths: [vendor/*, Tests/*]
 before_commands:
     - 'composer install --dev --prefer-source'

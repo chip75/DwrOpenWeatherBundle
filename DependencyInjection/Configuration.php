@@ -18,6 +18,24 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('dwr_global_weather');
+
+        $rootNode
+            ->children()
+                ->arrayNode('dwr_global_weather_configuration')
+                    ->children()
+                        ->scalarNode('wsdl')->end()
+                        ->scalarNode('timeout')->end()
+                    ->end()
+                ->end() //dwr_global_weather_configuration
+                ->arrayNode('dwr_global_weather_locations')
+                    ->prototype('array')
+                        ->prototype('scalar')
+                        ->end()
+                    ->end()
+                ->end() //dwr_global_weather_locations
+            ->end()
+        ;
 
         return $treeBuilder;
     }

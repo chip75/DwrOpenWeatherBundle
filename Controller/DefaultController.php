@@ -3,7 +3,6 @@
 namespace Dwr\GlobalWeatherBundle\Controller;
 
 use Dwr\GlobalWeatherBundle\Entity\Location;
-use Dwr\GlobalWeatherBundle\Form\Type\GlobalWeatherType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,10 +18,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $weather = null;
-
+        $weather  = null;
         $location = new Location();
-        $form = $this->createForm(new GlobalWeatherType(), $location);
+
+        $form = $this->createForm(
+            $this->get('dwr_global_weather_form_type'),
+            $location
+        );
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
