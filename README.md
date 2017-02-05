@@ -196,3 +196,10 @@ You can overwrite wsdl url if you know what you do. If you don't want to change 
 
 **timeout**  
 You can overwrite default timeout in order to elongate or reduce time during which application tries to connect with webservice.
+
+### Troubleshooting
+
+Make sure you have SoapClient installed.
+``` bash
+    sudo apt-get install php-soap
+```

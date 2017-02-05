@@ -2,9 +2,8 @@
 namespace Dwr\GlobalWeatherBundle\Form;
 
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\ChoiceList\LazyChoiceList;
 
-class LocationChoice extends LazyChoiceList
+class LocationChoice
 {
 
     private $locationParameters;
@@ -15,7 +14,7 @@ class LocationChoice extends LazyChoiceList
     }
 
     /**
-     * @return SimpleChoiceList
+     * @return ArrayChoiceList
      */
     public function loadChoiceList()
     {
