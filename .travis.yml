@@ -5,6 +5,6 @@ before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar install --dev
 script:
-    - vendor/bin/phpunit -c
+    - vendor/bin/phpunit
 after_script:
   - php vendor/bin/coveralls
