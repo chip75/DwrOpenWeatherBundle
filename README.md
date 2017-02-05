@@ -19,7 +19,17 @@ Installation is a quick 4 steps process:
 
 ### Step 1: Download DwrAvatarBundle using composer
 
-Add DwrGlobalWeatherBundle in your composer.json:
+Add DwrGlobalWeatherBundle in your composer.json (**Symfony 3.x**):
+
+``` js
+{
+    "require": {
+        "dwr/globalweather-bundle": "2.0"
+    }
+}
+```
+
+Add DwrGlobalWeatherBundle in your composer.json (**Symfony 2.x**):
 
 ``` js
 {
@@ -99,7 +109,7 @@ dwr_global_weather:
     prefix:   /dwr_globalweather
 ```
 
-**Congratulations!** You're ready to embed weather widget in your symfony2 application.
+**Congratulations!** You're ready to embed weather widget in your symfony application.
 Example how this widget works you can find on: **yours-application-url/dwr_globalweather/globalweather**.
 
 ## **Usage**
@@ -186,3 +196,10 @@ You can overwrite wsdl url if you know what you do. If you don't want to change 
 
 **timeout**  
 You can overwrite default timeout in order to elongate or reduce time during which application tries to connect with webservice.
+
+### Troubleshooting
+
+Make sure you have SoapClient installed.
+``` bash
+    sudo apt-get install php-soap
+```

@@ -5,12 +5,12 @@ use Dwr\GlobalWeatherBundle\Form\LocationChoice;
 
 class LocationChoiceTest extends \PHPUnit_Framework_TestCase
 {
-    public function testIfLoadChoiceListReturnsSimpleChoiceList()
+    public function testIfLoadChoiceListReturnsArrayChoiceList()
     {
         $locationChoice = new LocationChoice(array());
 
         $this->assertInstanceOf(
-            'Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList',
+            'Symfony\Component\Form\ChoiceList\ArrayChoiceList',
             $locationChoice->loadChoiceList()
         );
     }
@@ -22,9 +22,10 @@ class LocationChoiceTest extends \PHPUnit_Framework_TestCase
             'Test Country2' => ['City3', 'City4', 'City5']
         ];
         $locationChoice = new LocationChoice($locationParameters);
-
+        $loadedChoices = $locationChoice->loadChoiceList();
         $countCity = 5;
-        $this->assertSame($countCity, count($locationChoice->getChoices()));
+
+        $this->assertSame($countCity, count($loadedChoices->getChoices()));
     }
 
     public function testIfLoadChoiceListReturnCorrectlyChoiceList()
@@ -34,6 +35,7 @@ class LocationChoiceTest extends \PHPUnit_Framework_TestCase
             'Test Country2' => ['City3', 'City4', 'City5']
         ];
         $locationChoice = new LocationChoice($locationParameters);
+        $loadedChoices = $locationChoice->loadChoiceList();
 
         $expected = [
             'Test Country1, City1',
@@ -43,6 +45,6 @@ class LocationChoiceTest extends \PHPUnit_Framework_TestCase
             'Test Country2, City5',
         ];
 
-        $this->assertSame($expected, $locationChoice->getChoices());
+        $this->assertSame($expected, $loadedChoices->getValues());
     }
 }
