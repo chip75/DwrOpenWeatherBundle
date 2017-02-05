@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="./vendor/autoload.php">
+    <whitelist>
+        <directory>Entity</directory>
+        <directory>Form</directory>
+        <directory>Utility</directory>
+        <directory>WeatherService</directory>
+    </whitelist>
     <testsuites>
         <testsuite name="GlobalWeatherBundle Test Suite">
             <directory>./Tests/</directory>

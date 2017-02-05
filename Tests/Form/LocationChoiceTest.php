@@ -10,7 +10,7 @@ class LocationChoiceTest extends \PHPUnit_Framework_TestCase
         $locationChoice = new LocationChoice(array());
 
         $this->assertInstanceOf(
-            'Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList',
+            'Symfony\Component\Form\ChoiceList\ArrayChoiceList',
             $locationChoice->loadChoiceList()
         );
     }
