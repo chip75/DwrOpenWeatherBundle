@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="./vendor/autoload.php">
-    <whitelist>
-        <directory>Entity</directory>
-        <directory>Utility</directory>
-        <directory>OpenWeatherService</directory>
-    </whitelist>
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
+    <filter>
+        <whitelist>
+            <directory>Controller</directory>
+            <directory>Service</directory>
+        </whitelist>
+    </filter>
     <testsuites>
-        <testsuite name="OpenWeatherBundle Test Suite">
+        <testsuite name="DwrOpenWeatherBundle Test suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>
