@@ -20,7 +20,7 @@ class OpenWeather
      * OpenWeather constructor.
      * @param Configuration $config
      */
-    public function __construct(Configuration $config)
+    public function __construct(Configuration $config = null)
     {
         $this->type = self::DEFAULT_TYPE;
     }
@@ -68,5 +68,15 @@ class OpenWeather
     public function getSupportedType()
     {
         return $this->supportedType;
+    }
+
+
+    /**
+     * @param string $city
+     * @return string
+     */
+    public function getByCityName($city)
+    {
+        return $city;
     }
 }
