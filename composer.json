@@ -1,7 +1,7 @@
 {
   "name":         "dwr/openweather-bundle",
   "description":  "Symfony3 bundle wraps Open Weather API.",
-  "keywords":     ["weather", "open weather api", "weather rest api"],
+  "keywords":     ["weather", "open weather api", "weather rest api", "forecast"],
   "homepage":     "https://github.com/dariuszwrzesien/DwrOpenWeatherBundle",
   "type":         "symfony-bundle",
   "license":      "MIT",
