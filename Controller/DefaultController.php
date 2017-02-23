@@ -1,40 +1,21 @@
 <?php
 
-namespace Dwr\GlobalWeatherBundle\Controller;
+namespace Dwr\OpenWeatherBundle\Controller;
 
-use Dwr\GlobalWeatherBundle\Entity\Location;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/globalweather")
-     *
-     * @param Request $request
-     * @return Response
+     * @Route("/weather-basic-small")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $weather  = null;
-        $location = new Location();
+        $openWeather = $this->get('dwr_open_weather');
 
-        $form = $this->createForm(
-            $this->get('dwr_global_weather_form_type'),
-            $location
-        );
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $globalWeather = $this->get('dwr_global_weather');
-            $weather = $globalWeather->getCurrentWeather($location);
-        }
-
-        return $this->render('DwrGlobalWeatherBundle:Default:index.html.twig', array(
-            'form' => $form->createView(),
-            'weather' => $weather
+        return $this->render('DwrOpenWeatherBundle:Default:index.html.twig', array(
+            'weather' => $openWeather->getByCityName('London')
         ));
     }
 }

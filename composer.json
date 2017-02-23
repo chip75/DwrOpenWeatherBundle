@@ -1,15 +1,15 @@
 {
-  "name":         "dwr/globalweather-bundle",
-  "description":  "Symfony3 bundle which presents current weather based on Global Weather soap service.",
-  "keywords":     ["weather", "global weather", "weather soap client"],
-  "homepage":     "https://github.com/dariuszwrzesien/DwrGlobalWeatherBundle",
+  "name":         "dwr/openweather-bundle",
+  "description":  "Symfony3 bundle wrapper for Open Weather API.",
+  "keywords":     ["weather", "open weather api", "weather rest api"],
+  "homepage":     "https://github.com/dariuszwrzesien/DwrOpenWeatherBundle",
   "type":         "symfony-bundle",
   "license":      "MIT",
   "authors": [
     {
       "name":     "Dariusz Wrzesien",
       "email":    "dariuszwrzesien@gmail.com",
-      "homepage": "https://github.com/dariuszwrzesien/DwrAvatarBundle"
+      "homepage": "https://github.com/dariuszwrzesien/DwrOpenWeatherBundle"
     }
   ],
   "require": {
@@ -21,10 +21,15 @@
     "phpunit/phpunit": "5.7.*",
     "satooshi/php-coveralls": "dev-master"
   },
-  "suggest": {
-  },
   "autoload": {
-    "psr-0": { "Dwr\\GlobalWeatherBundle": "" }
+    "psr-4": {
+      "Dwr\\OpenWeatherBundle": ""
+    }
   },
-  "target-dir": "Dwr/GlobalWeatherBundle"
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "target-dir": "Dwr/OpenWeatherBundle"
 }

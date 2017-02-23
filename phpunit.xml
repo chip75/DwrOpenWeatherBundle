@@ -2,12 +2,11 @@
 <phpunit colors="true" bootstrap="./vendor/autoload.php">
     <whitelist>
         <directory>Entity</directory>
-        <directory>Form</directory>
         <directory>Utility</directory>
-        <directory>WeatherService</directory>
+        <directory>OpenWeatherService</directory>
     </whitelist>
     <testsuites>
-        <testsuite name="GlobalWeatherBundle Test Suite">
+        <testsuite name="OpenWeatherBundle Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

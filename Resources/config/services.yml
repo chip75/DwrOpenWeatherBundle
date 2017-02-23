@@ -15,20 +15,20 @@ parameters:
 
 services:
     dwr_global_weather_client:
-        class: Dwr\GlobalWeatherBundle\WeatherService\Client\GlobalWeatherClient
+        class: Dwr\OpenWeatherBundle\WeatherService\Client\GlobalWeatherClient
         arguments: ["%dwr_global_weather_configuration%"]
 
     dwr_global_weather_parserXML:
-        class: Dwr\GlobalWeatherBundle\Utility\ParserXML
+        class: Dwr\OpenWeatherBundle\Utility\ParserXML
 
     dwr_global_weather:
-        class: Dwr\GlobalWeatherBundle\WeatherService\GlobalWeather
+        class: Dwr\OpenWeatherBundle\WeatherService\GlobalWeather
         arguments: ["@dwr_global_weather_client", "@dwr_global_weather_parserXML"]
 
     dwr_global_weather_location_choice:
-        class: Dwr\GlobalWeatherBundle\Form\LocationChoice
+        class: Dwr\OpenWeatherBundle\Form\LocationChoice
         arguments: ["%dwr_global_weather_locations%"]
 
     dwr_global_weather_form_type:
-        class: Dwr\GlobalWeatherBundle\Form\Type\GlobalWeatherType
+        class: Dwr\OpenWeatherBundle\Form\Type\GlobalWeatherType
         arguments: ["@dwr_global_weather_location_choice"]
