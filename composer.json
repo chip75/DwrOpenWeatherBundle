@@ -23,13 +23,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Dwr\\OpenWeatherBundle": ""
+      "Dwr\\OpenWeatherBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests/"
+      "Tests\\": "Tests/"
     }
-  },
-  "target-dir": "Dwr/OpenWeatherBundle"
+  }
 }
