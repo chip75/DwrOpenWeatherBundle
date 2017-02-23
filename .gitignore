@@ -1,4 +1,3 @@
 build/*
-!build/logs/clover.xml
 vendor
 .idea/*
