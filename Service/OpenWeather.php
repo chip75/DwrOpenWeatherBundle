@@ -20,7 +20,7 @@ class OpenWeather
      * OpenWeather constructor.
      * @param Configuration $config
      */
-    public function __construct(Configuration $config = null)
+    public function __construct(Configuration $config)
     {
         $this->type = self::DEFAULT_TYPE;
     }

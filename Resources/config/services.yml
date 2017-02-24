@@ -14,8 +14,13 @@ parameters:
 #      United States: [New York]
 
 services:
-    dwr_global_weather:
+    dwr_open_weather:
       class: Dwr\OpenWeatherBundle\Service\OpenService.php
+      arguments: ["%dwr_open_weather_configuration%"]
+
+    dwr_open_weather_configuration:
+      class: Dwr\OpenWeatherBundle\Service\Configuration.php
+      arguments: ["@service_container"]
 
 #    dwr_global_weather_client:
 #        class: Dwr\OpenWeatherBundle\WeatherService\Client\GlobalWeatherClient

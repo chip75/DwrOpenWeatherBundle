@@ -13,6 +13,10 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $openWeather = $this->get('dwr_open_weather');
+
+        var_dump($openWeather);
+        die(__FILE__ . ':'. __LINE__);
+
         $openWeather->setType('Weather');
 
         return $this->render('DwrOpenWeatherBundle:Default:index.html.twig', array(
