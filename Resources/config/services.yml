@@ -1,17 +1,11 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-#   dwr_global_weather_configuration:
-#      wsdl: http://www.webservicex.net/globalweather.asmx?WSDL
-#      timeout: 10
-#   dwr_global_weather_locations:
-#      Australia: [Sydney Airport]
-#      Germany: [Berlin]
-#      Japan: [Tokyo]
-#      Poland: [Katowice, Krakow, Warszawa-Okecie]
-#      Russian Federation: [Moscow]
-#      Spain: [Barcelona, Fuerteventura, Las Palmas De Gran Canaria / Gando]
-#      United States: [New York]
+   dwr_open_weather:
+      base_uri: http://api.openweathermap.org
+      version: /data/2.5
+      timeout: 3
+      api_key: 123
 
 services:
     dwr_open_weather:
