@@ -2,6 +2,9 @@
 
 namespace Dwr\OpenWeatherBundle\Service;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+
 class Configuration
 {
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
@@ -39,8 +42,6 @@ class Configuration
      */
     public function __construct(array $configuration)
     {
-
-
         if (! array_key_exists('api_key', $configuration)) {
             throw new \LogicException('The DwrOpenWeatherBundle is not registered in your application.');
         }
