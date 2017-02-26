@@ -2,6 +2,8 @@
 
 namespace Dwr\OpenWeatherBundle\Service;
 
+use
+
 class Configuration
 {
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
@@ -35,23 +37,22 @@ class Configuration
 
     /**
      * Configuration constructor.
-     * @param ContainerInterface $container
+     * @param array $configuration
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(array $configuration)
     {
 
 
-//        if (! $container->has('dwr_open_weather')) {
-//            throw new \LogicException('The DwrOpenWeatherBundle is not registered in your application.');
-//        }
+        if (! array_key_exists('api_key', $configuration)) {
+            throw new \LogicException('The DwrOpenWeatherBundle is not registered in your application.');
+        }
 
-        $apiKey="123";
+        $this->apiKey = $configuration['api_key'];
 
-        $this->baseUri = self::DEFAULT_BASE_URI;
-        $this->version = self::DEFAULT_VERSION;
-        $this->timeout = self::DEFAULT_TIMEOUT;
+        $this->baseUri = (isset($configuration['base_uri']))?$configuration['base_uri']:self::DEFAULT_BASE_URI;
+        $this->version = (isset($configuration['version']))?$configuration['version']:self::DEFAULT_VERSION;
+        $this->timeout = (isset($configuration['timeout']))?$configuration['timeout']:self::DEFAULT_TIMEOUT;
         $this->httpClient = $this->getHttpClient();
-        $this->apiKey = $apiKey;
     }
 
     /**
