@@ -2,8 +2,6 @@
 
 namespace Dwr\OpenWeatherBundle\Service;
 
-use
-
 class Configuration
 {
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
