@@ -27,6 +27,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('base_uri')->end()
                 ->scalarNode('version')->end()
                 ->scalarNode('timeout')->end()
+                ->arrayNode('supported_request_type')
+                    ->children()
+                        ->scalarNode('Weather')->defaultValue(DwrOpenWeatherConfiguration::DEFAULT_SUPPORTED_TYPE['Weather'])->end()
+                        ->scalarNode('Forecast')->defaultValue(DwrOpenWeatherConfiguration::DEFAULT_SUPPORTED_TYPE['Forecast'])->end()
+                    ->end()
+                ->end()
             ->end()
         ;
 

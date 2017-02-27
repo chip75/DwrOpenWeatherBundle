@@ -56,6 +56,12 @@ class DwrOpenWeatherExtension extends Extension
             $configData['timeout'] = $container->getParameter('dwr_open_weather')['timeout'];
         }
 
+        if (isset($config['supported_request_type'])) {
+            $configData['supported_request_type'] = $config['supported_request_type'];
+        } else {
+            $configData['supported_request_type'] = $container->getParameter('dwr_open_weather')['supported_request_type'];
+        }
+
         $container->setParameter(
             'dwr_open_weather',
             $configData

@@ -13,10 +13,10 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $openWeather = $this->get('dwr_open_weather');
-        $openWeather->setType('Weather');
+        $weather = $openWeather->setType('Weather')->getByCityName('London');
 
         return $this->render('DwrOpenWeatherBundle:Default:index.html.twig', array(
-            'weather' => $openWeather->getByCityName('London')
+            'weather' => $weather
         ));
     }
 }

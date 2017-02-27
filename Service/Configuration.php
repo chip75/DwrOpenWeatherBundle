@@ -10,6 +10,7 @@ class Configuration
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
     const DEFAULT_VERSION = '/data/2.5';
     const DEFAULT_TIMEOUT = '3.0';
+    const DEFAULT_SUPPORTED_TYPE = array('Weather' => '/weather', 'Forecast' => '/forecast');
 
     /**
      * @var string
@@ -32,6 +33,11 @@ class Configuration
     private $httpClient;
 
     /**
+     * @var array
+     */
+    private $supportedType;
+
+    /**
      * @var string
      */
     private $apiKey;
@@ -42,16 +48,11 @@ class Configuration
      */
     public function __construct($configuration)
     {
-        var_dump($configuration);
-        die(__FILE__ . '::' . __LINE__);
-
-
-
         $this->apiKey = $configuration['api_key'];
-
         $this->baseUri = (isset($configuration['base_uri']))?$configuration['base_uri']:self::DEFAULT_BASE_URI;
         $this->version = (isset($configuration['version']))?$configuration['version']:self::DEFAULT_VERSION;
         $this->timeout = (isset($configuration['timeout']))?$configuration['timeout']:self::DEFAULT_TIMEOUT;
+        $this->supportedType = (isset($configuration['supported_request_type']))?$configuration['supported_request_type']:self::DEFAULT_SUPPORTED_TYPE;
         $this->httpClient = $this->getHttpClient();
     }
 
@@ -131,6 +132,11 @@ class Configuration
             'base_uri' => self::DEFAULT_BASE_URI,
             'timeout' => self::DEFAULT_TIMEOUT
         ]);
+    }
+
+    public function supportedType()
+    {
+        return $this->supportedType;
     }
 
     /**

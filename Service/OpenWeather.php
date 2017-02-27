@@ -2,9 +2,20 @@
 
 namespace Dwr\OpenWeatherBundle\Service;
 
+use Dwr\OpenWeatherBundle\Factory\ResponseFactory;
+
 class OpenWeather
 {
     const DEFAULT_TYPE = 'Weather';
+
+    /**
+     * @var Configuration
+     */
+    private $config;
+    /**
+     * @var Client
+     */
+    private $client;
 
     /**
      * @var string
@@ -12,9 +23,9 @@ class OpenWeather
     private $type;
 
     /**
-     * @var array
+     * @var Response
      */
-    private $supportedType = ['Weather', 'Forecast'];
+    private $response;
 
     /**
      * OpenWeather constructor.
@@ -22,21 +33,26 @@ class OpenWeather
      */
     public function __construct(Configuration $config)
     {
+        $this->config = $config;
+        $this->client = $config->getHttpClient();
         $this->type = self::DEFAULT_TYPE;
     }
 
     /**
-     * @param string $type
+     * @param $type
+     * @return $this
      */
     public function setType($type)
     {
         if (! $this->isType($type)) {
             throw new \InvalidArgumentException(
-                'Unknown OpenWeather type. Supported types are: ' . implode(', ', $this->supportedType)
+                'Unknown OpenWeather type. Supported types are: ' . implode(', ', $this->getSupportedType())
             );
         }
 
         $this->type = $type;
+
+        return $this;
     }
 
     /**
@@ -47,7 +63,7 @@ class OpenWeather
     {
         if (isset($type)
             && ! empty($type)
-            && in_array($type, $this->supportedType)
+            && array_key_exists($type, $this->getSupportedType())
         ) {
             return true;
         }
@@ -67,16 +83,66 @@ class OpenWeather
      */
     public function getSupportedType()
     {
-        return $this->supportedType;
+        return $this->config->supportedType();
     }
 
+    /**
+     * @param string $cityName
+     * @return ResponseInterface
+     */
+    public function getByCityName($cityName)
+    {
+        return $this->request(['query' => ['q' => $cityName]]);
+    }
 
     /**
-     * @param string $city
+     * @param string $cityId
+     * @return ResponseInterface
+     */
+    public function getByCityId($cityId)
+    {
+        return $this->request(['query' => ['id' => (int)$cityId]]);
+    }
+
+    /**
+     * @param int $lat
+     * @param int $lon
+     * @return ResponseInterface
+     */
+    public function getByGeographicCoordinates($lon, $lat)
+    {
+        return $this->request(['query' => ['lon' => $lon, 'lat' => $lat]]);
+    }
+
+    /**
+     * @param array $parameters
+     * @return ResponseInterface
+     */
+    private function request(array $parameters)
+    {
+        $parameters['query']['appid'] = $this->config->apiKey();
+        $data = $this->client->get($this->buildUri($this->type), $parameters);
+        return $this->response($this->type, $data);
+    }
+
+    /**
+     * @param $requestType
      * @return string
      */
-    public function getByCityName($city)
+    private function buildUri($requestType)
     {
-        return $city;
+        $supportedType = $this->config->supportedType();
+        return $this->config->version() . $supportedType[$requestType];
+    }
+
+    /**
+     * @param $responseType
+     * @param Response $data
+     * @return ResponseInterface
+     */
+    private function response($responseType, $data)
+    {
+        $response = new ResponseFactory();
+        return $response->setType($responseType)->create($data->getBody());
     }
 }
