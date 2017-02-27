@@ -10,7 +10,10 @@ class Configuration
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
     const DEFAULT_VERSION = '/data/2.5';
     const DEFAULT_TIMEOUT = '3.0';
-    const DEFAULT_SUPPORTED_TYPE = array('Weather' => '/weather', 'Forecast' => '/forecast');
+    const DEFAULT_SUPPORTED_TYPE = array(
+        'Weather' => '/weather',
+        'Forecast' => '/forecast'
+    );
 
     /**
      * @var string
