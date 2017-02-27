@@ -45,11 +45,17 @@ class Forecast
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function cityName()
     {
         return ($this->city) ? $this->city['name'] : '';
     }
 
+    /**
+     * @return string
+     */
     public function country()
     {
         return ($this->city) ? $this->city['country'] : '';

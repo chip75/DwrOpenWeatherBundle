@@ -4,6 +4,8 @@
         <whitelist>
             <directory>Controller</directory>
             <directory>Service</directory>
+            <directory>Entity</directory>
+            <directory>Factory</directory>
         </whitelist>
     </filter>
     <testsuites>

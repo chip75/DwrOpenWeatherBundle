@@ -18,22 +18,3 @@ services:
     dwr_open_weather_configuration:
       class: Dwr\OpenWeatherBundle\Service\Configuration
       arguments: ["%dwr_open_weather%"]
-
-#    dwr_global_weather_client:
-#        class: Dwr\OpenWeatherBundle\WeatherService\Client\GlobalWeatherClient
-#        arguments: ["%dwr_global_weather_configuration%"]
-#
-#    dwr_global_weather_parserXML:
-#        class: Dwr\OpenWeatherBundle\Utility\ParserXML
-#
-#    dwr_global_weather:
-#        class: Dwr\OpenWeatherBundle\WeatherService\GlobalWeather
-#        arguments: ["@dwr_global_weather_client", "@dwr_global_weather_parserXML"]
-#
-#    dwr_global_weather_location_choice:
-#        class: Dwr\OpenWeatherBundle\Form\LocationChoice
-#        arguments: ["%dwr_global_weather_locations%"]
-#
-#    dwr_global_weather_form_type:
-#        class: Dwr\OpenWeatherBundle\Form\Type\GlobalWeatherType
-#        arguments: ["@dwr_global_weather_location_choice"]

@@ -137,6 +137,9 @@ class Configuration
         ]);
     }
 
+    /**
+     * @return array
+     */
     public function supportedType()
     {
         return $this->supportedType;
