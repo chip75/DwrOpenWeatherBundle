@@ -40,11 +40,12 @@ class Configuration
      * Configuration constructor.
      * @param array $configuration
      */
-    public function __construct(array $configuration)
+    public function __construct($configuration)
     {
-        if (! array_key_exists('api_key', $configuration)) {
-            throw new \LogicException('The DwrOpenWeatherBundle is not registered in your application.');
-        }
+        var_dump($configuration);
+        die(__FILE__ . '::' . __LINE__);
+
+
 
         $this->apiKey = $configuration['api_key'];
 

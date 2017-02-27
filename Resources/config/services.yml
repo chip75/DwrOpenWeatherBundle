@@ -5,7 +5,6 @@ parameters:
       base_uri: http://api.openweathermap.org
       version: /data/2.5
       timeout: 3
-      api_key: 123
 
 services:
     dwr_open_weather:

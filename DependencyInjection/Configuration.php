@@ -4,6 +4,7 @@ namespace Dwr\OpenWeatherBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Dwr\OpenWeatherBundle\Service\Configuration as DwrOpenWeatherConfiguration;
 
 /**
  * This is the class that validates and merges configuration from your app/config files.
@@ -20,9 +21,14 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('dwr_open_weather');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('api_key')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('base_uri')->end()
+                ->scalarNode('version')->end()
+                ->scalarNode('timeout')->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }
