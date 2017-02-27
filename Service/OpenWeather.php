@@ -23,11 +23,6 @@ class OpenWeather
     private $type;
 
     /**
-     * @var Response
-     */
-    private $response;
-
-    /**
      * OpenWeather constructor.
      * @param Configuration $config
      */
