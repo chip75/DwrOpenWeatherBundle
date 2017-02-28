@@ -30,7 +30,7 @@ class ResponseFactory
     public function create($data)
     {
         if (empty($this->type)) {
-            throw new LogicException('Parameter $type has to be set before call create function.');
+            throw new LogicException('Parameter $type has to be set before call create() function.');
         }
 
         $response = self::RESPONSE_SERVICE . $this->type;

@@ -18,3 +18,9 @@ services:
     dwr_open_weather_configuration:
       class: Dwr\OpenWeatherBundle\Service\Configuration
       arguments: ["%dwr_open_weather%"]
+
+    dwr.temperature_unit_converter:
+      class: Dwr\OpenWeatherBundle\Extension\TemperatureUnitConverter
+      public: false
+      tags:
+          - { name: twig.extension }

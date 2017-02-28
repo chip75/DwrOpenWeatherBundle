@@ -1,8 +1,35 @@
-Hello World
-{% if weather %}
-    {{ dump(weather) }}
-{% endif %}
-{% if forecast %}
-    {{ dump(forecast) }}
-{% endif %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+    .ow-container .bold{font-weight: bold;}
+    .ow-container .italic{font-style: italic;}
+    .ow-container .small-font{font-size: 80%;}
+    .ow-container .green{ color: #3c763d;}
+    .ow-container .black{ color: #000;}
+    .ow-container{font-family: 'Raleway', sans-serif; line-height: 150%; color: #2e3436; width: 470px; border: 1px solid #ddd; padding: 10px; border-radius: 90px;}
+    .ow-container header {display: block; float: left; margin-right: 20px;}
+    .ow-data{display: table; width: 400px}
+    .ow-data .row{display: table-row}
+    .ow-data .row .blue-highlighted{border-radius: 90px; background-color: #00A5E3; padding: 5px 10px; color: #fff; font-size: 90%}
+    .ow-data .row .orange-highlighted{border-radius: 90px; background-color: #eea236; padding: 5px 10px; color: #fff; font-size: 90%}
+    .ow-data .row .green-highlighted{border-radius: 90px; background-color: #2ca02c; padding: 5px 10px; color: #fff; font-size: 90%}
+</style>
+
+<section class="ow-container">
+    <header>
+        <img class="icon"
+             src="http://openweathermap.org/img/w/{{ weather.icon() }}.png"
+             alt="{{ weather.description() }}">
+    </header>
+    <div class="ow-data">
+        <div class="row">
+            <span class="bold green">{{ weather.cityName() }} {{ weather.country() }}</span>,
+            <span class="bold italic black small-font">{{ weather.description() }}</span>
+        </div>
+        <div class="row">
+            <span class="bold blue-highlighted">{{ weather.temp()|kelvinToCelsius }} &deg;C</span>
+            <span class="small-font">pressure:&nbsp;</span><span>{{ weather.pressure() }} hPa</span>,
+            <span class="small-font">humidity:&nbsp;</span><span>{{ weather.humidity() }} %</span>
+        </div>
+    </div>
+</section>
 
