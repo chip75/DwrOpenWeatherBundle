@@ -1,0 +1,70 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.10.1/chartist.min.css" rel="stylesheet" type="text/css">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+    .clear-both{clear: both;}
+    .ow-container .bold{font-weight: bold;}
+    .ow-container{font-family: 'Raleway', sans-serif; line-height: 150%; color: #2e3436; width: 1024px}
+
+    .ow-container .title{display: table}
+    .ow-container .city1, .ow-container .city2, .ow-container .city3{display: table-cell; width: 50px; height: 50px;}
+    .ow-container .city-name{display: table-cell; padding-left: 10px; padding-right: 30px; vertical-align: middle}
+    .ow-container .city1{background-color: #63ff75;}
+    .ow-container .city2{background-color: #00e5ff;}
+    .ow-container .city3{background-color: #ffa8a8;}
+
+    .ct-series-a .ct-bar, .ct-series-a .ct-line{stroke: #63ff75;}
+    .ct-series-a .ct-point{stroke: #0CC162;}
+    .ct-series-b .ct-bar, .ct-series-b .ct-line{stroke: #00e5ff;}
+    .ct-series-b .ct-point{stroke: #00b9ed;}
+    .ct-series-c .ct-bar, .ct-series-c .ct-line{stroke: #ffa8a8;}
+    .ct-series-c .ct-point{stroke: #f44646;}
+
+    .ow-forecast-chart .ct-label.ct-vertical.ct-start {
+        color: #000000;
+    }
+    .ow-forecast-chart .ct-label.ct-horizontal.ct-end {
+        color: #000000;
+        display: block;
+        overflow: visible !important;
+        white-space: nowrap;
+        transform: rotate(-90deg);
+        text-align: left;
+        max-height: 1.5em;
+        margin-left: -85px;
+        padding-top: 155px;
+    }
+</style>
+<section class="ow-container">
+    <div class="title bold">
+        <div class="city1"></div><div class="city-name">{{ forecastCity1.cityName() }}</div>
+        <div class="city2"></div><div class="city-name">{{ forecastCity2.cityName() }}</div>
+        <div class="city3"></div><div class="city-name">{{ forecastCity3.cityName() }}</div>
+    </div>
+    <div id="js-forecast-chart" class="ow-forecast-chart"
+         data-city1-labels="{{ forecastCity1Labels|raw }}"
+         data-city1-temps="{{ forecastCity1Temps|kelvinToCelsius|raw }}"
+         data-city2-labels="{{ forecastCity2Labels|raw }}"
+         data-city2-temps="{{ forecastCity2Temps|kelvinToCelsius|raw }}"
+         data-city3-labels="{{ forecastCity3Labels|raw }}"
+         data-city3-temps="{{ forecastCity3Temps|kelvinToCelsius|raw }}">
+    </div>
+</section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.10.1/chartist.min.js"></script>
+<script type="text/javascript">
+    var data = {
+        labels: JSON.parse(document.getElementById('js-forecast-chart').getAttribute('data-city1-labels')),
+        series: [
+            JSON.parse(document.getElementById('js-forecast-chart').getAttribute('data-city1-temps')),
+            JSON.parse(document.getElementById('js-forecast-chart').getAttribute('data-city2-temps')),
+            JSON.parse(document.getElementById('js-forecast-chart').getAttribute('data-city3-temps'))
+        ]
+    };
+    var options = {
+        width: 960,
+        height: 600,
+        chartPadding: {
+            bottom: 100
+        }
+    };
+    new Chartist.Line('.ow-forecast-chart', data, options);
+</script>
