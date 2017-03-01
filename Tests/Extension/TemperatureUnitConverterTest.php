@@ -6,6 +6,22 @@ use Dwr\OpenWeatherBundle\Extension\TemperatureUnitConverter;
 
 class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
 {
+
+    public function testFiltersName()
+    {
+        $extension = new TemperatureUnitConverter();
+
+        $filters = array_map(function($item){
+            return $item->getName();
+        }, $extension->getFilters());
+
+        $this->assertContains('kelvinToCelsius', $filters);
+        $this->assertContains('celsiusToKelvin', $filters);
+        $this->assertContains('kelvinToFahrenheit', $filters);
+        $this->assertContains('fahrenheitToKelvin', $filters);
+        $this->assertContains('intToDate', $filters);
+    }
+
     /**
      * @param float $kelvin
      * @param float $celsius
@@ -17,6 +33,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
         $extension = new TemperatureUnitConverter();
         $this->assertEquals($celsius, $extension->kelvinToCelsius($kelvin));
     }
+
     /**
      * @return array
      */
@@ -28,6 +45,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
             [373.15, 100]
         ];
     }
+
     /**
      * @param float $celsius
      * @param float $kelvin
@@ -39,6 +57,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
         $extension = new TemperatureUnitConverter();
         $this->assertEquals($kelvin, $extension->celsiusToKelvin($celsius));
     }
+
     /**
      * @return array
      */
@@ -50,6 +69,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
             [100, 373.15]
         ];
     }
+
     /**
      * @param float $kelvin
      * @param float $fahrenheit
@@ -61,6 +81,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
         $extension = new TemperatureUnitConverter();
         $this->assertEquals($fahrenheit, $extension->kelvinToFahrenheit($kelvin));
     }
+
     /**
      * @return array
      */
@@ -72,6 +93,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
             [255.37, 0]
         ];
     }
+
     /**
      * @param float $fahrenheit
      * @param float $kelvin
@@ -83,6 +105,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
         $extension = new TemperatureUnitConverter();
         $this->assertEquals($kelvin, $extension->fahrenheitToKelvin($fahrenheit));
     }
+
     /**
      * @return array
      */
@@ -94,6 +117,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
             [0, 255.37]
         ];
     }
+
     /**
      * @param array $actual
      * @param string $expected
@@ -105,6 +129,7 @@ class TemperatureUnitConverterTest extends \PHPUnit_Framework_TestCase
         $extension = new TemperatureUnitConverter();
         $this->assertEquals($expected, $extension->intToDate($actual['idate'], $actual['format']));
     }
+
     /**
      * @return array
      */

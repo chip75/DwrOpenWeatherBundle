@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Dwr\OpenWeatherBundle\Service\Configuration;
 use Dwr\OpenWeatherBundle\Service\OpenWeather;
+use InvalidArgumentException;
 
 class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 {
