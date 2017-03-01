@@ -6,6 +6,34 @@ use GuzzleHttp\Psr7\Response;
 
 class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 {
+    public function testIfWeatherIsSupportedType()
+    {
+        $actual = 'Weather';
+        $config = new Configuration(['api_key' => '123']);
+        $openWeather = new OpenWeather($config);
+        $this->assertTrue(in_array($actual, $openWeather->getSupportedType()));
+        $this->assertInstanceOf('Dwr\\OpenWeatherbundle\\OpenWeather', $openWeather);
+    }
+
+    public function testIfForecastIsSupportedType()
+    {
+        $actual = 'Forecast';
+        $config = new Configuration(['api_key' => '123']);
+        $openWeather = new OpenWeather($config);
+        $this->assertTrue(in_array($actual, $openWeather->getSupportedType()));
+        $this->assertInstanceOf('Dwr\\OpenWeatherbundle\\OpenWeather', $openWeather);
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage Unknown OpenWeather type. Supported types are: Weather, Forecast
+     */
+    public function testIfUnSupportedTypeThrowsException()
+    {
+        $config = new Configuration(['api_key' => '123']);
+        new OpenWeather('Dummy text', $config);
+    }
+
     public function testWeatherEntityInfill()
     {
         $jsonData  = '{
