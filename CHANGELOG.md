@@ -1,5 +1,5 @@
 
-## 2.0 2017-03-01
+## **2.0.** 2017-03-01
 ### Added
 - New weather provider: OpenWeather
 - Compatibility with Symfony 3.x
@@ -7,7 +7,7 @@
 - Removed GobalWeather provider
 
 ### Changed
-- Change weather API provider from Globalweather to OpenWeather
+- Changed weather API provider from Globalweather to OpenWeather
 GlobalWeather seems to have some issues and we can not relay on it anymore.
 So I decided to leave supporting GlobalWeather SOAP API and switch to RESTFUL OpenWeather.
 More details about OpenWeather you may find [here](http://openweathermap.org/).
