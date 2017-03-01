@@ -10,8 +10,8 @@
 ## Examples
 
 Take a moment and check examples. Maybe you will find there a solution which you like.
-In order to run examples on your local:
 
+In order to run examples on your local:
 1. Add route in your routing.yml (app/config/routing.yml).
 
 ```yml
@@ -19,16 +19,14 @@ In order to run examples on your local:
         resource: "@DwrOpenWeatherBundle/Controller/"
         type:     annotation
 ```
+- After that examples should be available in following url adresses:
+    - yours-application-url/weather-basic-small
+    - yours-application-url/weather-basic-medium
+    - yours-application-url/weather-basic-large
+    - yours-application-url/forecast-chart
+    - yours-application-url/forecast-basic
 
-2. Examples are available in following url addresses:
-- yours-application-url/weather-basic-small
-- yours-application-url/weather-basic-medium
-- yours-application-url/weather-basic-large
-- yours-application-url/forecast-chart
-- yours-application-url/forecast-basic
-
-How does it exactly look like, you may see below.
-
+#### How does it exactly look like, you may see below.
 ### weather-basic-small
 ![weather-basic-small](Resources/doc/weather-basic-small.jpg)
 
@@ -48,7 +46,6 @@ Action: weatherBasicSmallAction()
         ));
     }
 ```
-
 ### weather-basic-medium
 ![weather-basic-medium](Resources/doc/weather-basic-medium.jpg)
 
@@ -68,7 +65,6 @@ Action: weatherBasicMediumAction()
         ));
     }
 ```
-
 ### weather-basic-large
 ![weather-basic-large](Resources/doc/weather-basic-large.jpg)
 
@@ -88,7 +84,6 @@ Action: weatherBasicLargeAction()
         ));
     }
 ```
-
 ### forecast-chart
 ![forecast-chart](Resources/doc/forecast-chart.jpg)
 
@@ -119,7 +114,6 @@ Action: forecastBasicAction()
         ));
     }
 ```
-
 ### forecast-basic
 ![forecast-basic](Resources/doc/forecast-basic.jpg)
 
@@ -174,7 +168,6 @@ Action: forecastBasicAction()
         ));
     }
 ```
-
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
