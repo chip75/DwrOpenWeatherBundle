@@ -7,9 +7,9 @@
 
 # **DwrOpenWeatherBundle**
 
-DwrOpenWeatherBundle is a simply wrapper bundle for [Open Weather API](https://openweathermap.org/). 
-In order to start please generate your personal ApiKey first.
-You can do it [here](http://openweathermap.org/appid). 
+DwrOpenWeatherBundle is a simply wrapper bundle for [Open Weather API](https://openweathermap.org/).  
+In order to start please generate your personal ApiKey first.  
+You can do it [here](http://openweathermap.org/appid).
 
 ## **Installation**
 
@@ -39,7 +39,7 @@ $ php composer.phar require dwr/openweather-bundle
 
 Composer will install the bundle into your project's `vendor/dwr/openweather-bundle` directory.
 
-### Step 2: Enable the bundle
+### Step 2: Enable the bundle and add APIKEY to config.yml
 
 Enable the bundle in the kernel:
 
@@ -71,7 +71,7 @@ dwr_open_weather:
     type:     annotation
 ```
 
-Congratulations! You're ready to show weather widget in your symfony application.
+Congratulations! You're ready to show weather widget in your symfony application.  
 Example how **weather-basic-small** looks like you can find on: yours-application-url/weather-basic-small .
 
 ## Usage
@@ -125,7 +125,7 @@ In order to run examples on your local:
         resource: "@DwrOpenWeatherBundle/Controller/"
         type:     annotation
 ```
-- After that, examples should be available in following url adresses:
+- After that, examples should be available in following url addresses:
     - yours-application-url/weather-basic-small
     - yours-application-url/weather-basic-medium
     - yours-application-url/weather-basic-large
