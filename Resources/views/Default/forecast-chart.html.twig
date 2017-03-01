@@ -41,12 +41,12 @@
         <div class="city3"></div><div class="city-name">{{ forecastCity3.cityName() }}</div>
     </div>
     <div id="js-forecast-chart" class="ow-forecast-chart"
-         data-city1-labels="{{ forecastCity1Labels|raw }}"
-         data-city1-temps="{{ forecastCity1Temps|kelvinToCelsius|raw }}"
-         data-city2-labels="{{ forecastCity2Labels|raw }}"
-         data-city2-temps="{{ forecastCity2Temps|kelvinToCelsius|raw }}"
-         data-city3-labels="{{ forecastCity3Labels|raw }}"
-         data-city3-temps="{{ forecastCity3Temps|kelvinToCelsius|raw }}">
+         data-city1-labels="{{ forecastCity1Labels|escape }}"
+         data-city1-temps="{{ forecastCity1Temps|escape }}"
+         data-city2-labels="{{ forecastCity2Labels|escape }}"
+         data-city2-temps="{{ forecastCity2Temps|escape }}"
+         data-city3-labels="{{ forecastCity3Labels|escape }}"
+         data-city3-temps="{{ forecastCity3Temps|escape }}">
     </div>
 </section>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.10.1/chartist.min.js"></script>

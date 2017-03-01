@@ -2,7 +2,11 @@
 
 namespace Dwr\OpenWeatherBundle\Extension;
 
-class TemperatureUnitConverter extends \Twig_Extension
+use Dwr\OpenWeatherBundle\Utility\Converter;
+use Twig_Extension;
+use Twig_SimpleFilter;
+
+class TemperatureUnitConverter extends Twig_Extension
 {
     const ROUND_FLOAT = 2;
 
@@ -12,11 +16,11 @@ class TemperatureUnitConverter extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('kelvinToCelsius', array($this, 'kelvinToCelsius')),
-            new \Twig_SimpleFilter('celsiusToKelvin', array($this, 'celsiusToKelvin')),
-            new \Twig_SimpleFilter('kelvinToFahrenheit', array($this, 'kelvinToFahrenheit')),
-            new \Twig_SimpleFilter('fahrenheitToKelvin', array($this, 'fahrenheitToKelvin')),
-            new \Twig_SimpleFilter('intToDate', array($this, 'intToDate')),
+            new Twig_SimpleFilter('kelvinToCelsius', array($this, 'kelvinToCelsius')),
+            new Twig_SimpleFilter('celsiusToKelvin', array($this, 'celsiusToKelvin')),
+            new Twig_SimpleFilter('kelvinToFahrenheit', array($this, 'kelvinToFahrenheit')),
+            new Twig_SimpleFilter('fahrenheitToKelvin', array($this, 'fahrenheitToKelvin')),
+            new Twig_SimpleFilter('intToDate', array($this, 'intToDate')),
         );
     }
 
@@ -26,7 +30,7 @@ class TemperatureUnitConverter extends \Twig_Extension
      */
     public function kelvinToCelsius($temp)
     {
-        return round((float) $temp - 273.15, self::ROUND_FLOAT);
+        return Converter::kelvinToCelsius($temp);
     }
 
     /**
@@ -35,7 +39,7 @@ class TemperatureUnitConverter extends \Twig_Extension
      */
     public function celsiusToKelvin($temp)
     {
-        return round((float) $temp + 273.15, self::ROUND_FLOAT);
+        return Converter::celsiusToKelvin($temp);
     }
 
     /**
@@ -44,7 +48,7 @@ class TemperatureUnitConverter extends \Twig_Extension
      */
     public function kelvinToFahrenheit($temp)
     {
-        return round((float) $temp * 9/5 - 459.67, self::ROUND_FLOAT);
+        return Converter::kelvinToFahrenheit($temp);
     }
 
     /**
@@ -53,7 +57,7 @@ class TemperatureUnitConverter extends \Twig_Extension
      */
     public function fahrenheitToKelvin($temp)
     {
-        return round(((float) $temp + 459.67) * 5/9, self::ROUND_FLOAT);
+        return Converter::fahrenheitToKelvin($temp);
     }
 
     /**
@@ -63,10 +67,7 @@ class TemperatureUnitConverter extends \Twig_Extension
      */
     public function intToDate($int, $format = null)
     {
-        if ($format) {
-            return date($format, $int);
-        }
-        return date("Y-m-d H:i:s", $int);
+        return Converter::intToDate($int, $format);
     }
 
     /**

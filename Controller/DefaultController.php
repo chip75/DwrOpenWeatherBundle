@@ -4,6 +4,7 @@ namespace Dwr\OpenWeatherBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Dwr\OpenWeatherBundle\Utility\Converter;
 
 class DefaultController extends Controller
 {
@@ -80,28 +81,28 @@ class DefaultController extends Controller
         $city1 = 'Warsaw';
         $forecastCity1 = $openWeather->setType('Forecast')->getByCityName($city1);
         $forecastCity1Labels = json_encode(array_map(function ($value) {
-            return $value['dt'];
+            return Converter::intToDate($value['dt'], 'd-m-Y H:i');
         }, $forecastCity1->lists()));
         $forecastCity1Temps = json_encode(array_map(function ($value) {
-            return $value['main']['temp'];
+            return Converter::kelvinToCelsius($value['main']['temp']);
         }, $forecastCity1->lists()));
 
         $city2 = 'Berlin';
         $forecastCity2 = $openWeather->setType('Forecast')->getByCityName($city2);
         $forecastCity2Labels = json_encode(array_map(function ($value) {
-            return $value['dt'];
+            return Converter::intToDate($value['dt'], 'd-m-Y H:i');
         }, $forecastCity2->lists()));
         $forecastCity2Temps = json_encode(array_map(function ($value) {
-            return $value['main']['temp'];
+            return Converter::kelvinToCelsius($value['main']['temp']);
         }, $forecastCity2->lists()));
 
-        $city3 = 'Moscow';
+        $city3 = 'London';
         $forecastCity3 = $openWeather->setType('Forecast')->getByCityName($city3);
         $forecastCity3Labels = json_encode(array_map(function ($value) {
-            return $value['dt'];
+            return Converter::intToDate($value['dt'], 'd-m-Y H:i');
         }, $forecastCity3->lists()));
         $forecastCity3Temps = json_encode(array_map(function ($value) {
-            return $value['main']['temp'];
+            return Converter::kelvinToCelsius($value['main']['temp']);
         }, $forecastCity3->lists()));
 
         return $this->render('DwrOpenWeatherBundle:Default:forecast-chart.html.twig', array(
