@@ -11,7 +11,7 @@
 
 Take a moment and check examples. Maybe you will find there a solution which you like.
 
-In order to run examples on your local:
+In order to run examples on your local:  
 1. Add route in your routing.yml (app/config/routing.yml).
 
 ```yml
@@ -19,7 +19,7 @@ In order to run examples on your local:
         resource: "@DwrOpenWeatherBundle/Controller/"
         type:     annotation
 ```
-- After that examples should be available in following url adresses:
+- After that, examples should be available in following url adresses:
     - yours-application-url/weather-basic-small
     - yours-application-url/weather-basic-medium
     - yours-application-url/weather-basic-large
@@ -30,7 +30,7 @@ In order to run examples on your local:
 ### weather-basic-small
 ![weather-basic-small](Resources/doc/weather-basic-small.jpg)
 
-Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php
+Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php  
 Action: weatherBasicSmallAction()
 
 ```php
@@ -49,7 +49,7 @@ Action: weatherBasicSmallAction()
 ### weather-basic-medium
 ![weather-basic-medium](Resources/doc/weather-basic-medium.jpg)
 
-Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php
+Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php  
 Action: weatherBasicMediumAction()
 
 ```php
@@ -68,7 +68,7 @@ Action: weatherBasicMediumAction()
 ### weather-basic-large
 ![weather-basic-large](Resources/doc/weather-basic-large.jpg)
 
-Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php
+Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php  
 Action: weatherBasicLargeAction()
 
 ```php
@@ -87,38 +87,8 @@ Action: weatherBasicLargeAction()
 ### forecast-chart
 ![forecast-chart](Resources/doc/forecast-chart.jpg)
 
-Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php
-Action: forecastBasicAction()
-
-```php
-    /**
-     * @Route("/forecast-basic")
-     */
-    public function forecastBasicAction()
-    {
-        $openWeather = $this->get('dwr_open_weather');
-        $forecastCity = $openWeather->setType('Forecast')->getByCityName('Rome');
-        $forecast = array_map(function ($value) {
-            return [
-                'timestamp' => $value['dt'],
-                'temp' => $value['main']['temp'],
-                'pressure' => $value['main']['pressure'],
-                'humidity' => $value['main']['humidity'],
-                'description' => ($value['weather'][0]['description'])?$value['weather'][0]['description']:'',
-                'icon' => ($value['weather'][0]['icon'])?$value['weather'][0]['icon']:'',
-            ];
-        }, $forecastCity->lists());
-        return $this->render('DwrOpenWeatherBundle:Default:forecast-basic.html.twig', array(
-            'forecastCity' => $forecastCity,
-            'forecast' => $forecast
-        ));
-    }
-```
-### forecast-basic
-![forecast-basic](Resources/doc/forecast-basic.jpg)
-
-Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php
-Action: forecastBasicAction()
+Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php  
+Action: forecastChartAction()
 
 ```php
     /**
@@ -168,6 +138,37 @@ Action: forecastBasicAction()
         ));
     }
 ```
+### forecast-basic
+![forecast-basic](Resources/doc/forecast-basic.jpg)
+
+Example from: Dwr\OpenWeatherBundle\Controller\DefaultController.php  
+Action: forecastBasicAction()
+
+```php
+    /**
+     * @Route("/forecast-basic")
+     */
+    public function forecastBasicAction()
+    {
+        $openWeather = $this->get('dwr_open_weather');
+        $forecastCity = $openWeather->setType('Forecast')->getByCityName('Rome');
+        $forecast = array_map(function ($value) {
+            return [
+                'timestamp' => $value['dt'],
+                'temp' => $value['main']['temp'],
+                'pressure' => $value['main']['pressure'],
+                'humidity' => $value['main']['humidity'],
+                'description' => ($value['weather'][0]['description'])?$value['weather'][0]['description']:'',
+                'icon' => ($value['weather'][0]['icon'])?$value['weather'][0]['icon']:'',
+            ];
+        }, $forecastCity->lists());
+        return $this->render('DwrOpenWeatherBundle:Default:forecast-basic.html.twig', array(
+            'forecastCity' => $forecastCity,
+            'forecast' => $forecast
+        ));
+    }
+```
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
