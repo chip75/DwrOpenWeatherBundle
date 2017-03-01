@@ -1,9 +1,12 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c/big.png)](https://insight.sensiolabs.com/projects/a32fc8c5-0bc8-4daa-8b8d-eb2696de949c)
 ======================
+[![Latest Stable Version](https://poser.pugx.org/dwr/openweather-bundle/v/stable)](https://packagist.org/packages/dwr/openweather-bundle)
+[![Total Downloads](https://poser.pugx.org/dwr/openweather-bundle/downloads)](https://packagist.org/packages/dwr/openweather-bundle)
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.org/dariuszwrzesien/DwrOpenWeatherBundle.svg?branch=master)](https://travis-ci.org/dariuszwrzesien/DwrOpenWeatherBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrOpenWeatherBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrOpenWeatherBundle/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/dariuszwrzesien/DwrOpenWeatherBundle/badge.svg?branch=master&service=github)](https://coveralls.io/github/dariuszwrzesien/DwrOpenWeatherBundle?branch=master)
+[![composer.lock](https://poser.pugx.org/dwr/openweather-bundle/composerlock)](https://packagist.org/packages/dwr/openweather-bundle)
 
 # **DwrOpenWeatherBundle**
 
