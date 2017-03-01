@@ -8,8 +8,6 @@ use Twig_SimpleFilter;
 
 class TemperatureUnitConverter extends Twig_Extension
 {
-    const ROUND_FLOAT = 2;
-
     /**
      * @return array
      */

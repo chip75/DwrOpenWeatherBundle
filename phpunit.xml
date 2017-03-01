@@ -2,10 +2,11 @@
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
     <filter>
         <whitelist>
-            <directory>Controller</directory>
-            <directory>Service</directory>
             <directory>Entity</directory>
+            <directory>Extension</directory>
             <directory>Factory</directory>
+            <directory>Service</directory>
+            <directory>Utility</directory>
         </whitelist>
     </filter>
     <testsuites>
