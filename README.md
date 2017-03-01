@@ -26,7 +26,7 @@ In order to run examples on your local:
     - yours-application-url/forecast-chart
     - yours-application-url/forecast-basic
 
-#### How does it exactly look like, you may see below.
+### How does it exactly look like, you may see below.
 ### weather-basic-small
 ![weather-basic-small](Resources/doc/weather-basic-small.jpg)
 
@@ -97,6 +97,7 @@ Action: forecastChartAction()
     public function forecastChartAction()
     {
         $openWeather = $this->get('dwr_open_weather');
+        
         $city1 = 'Warsaw';
         $forecastCity1 = $openWeather->setType('Forecast')->getByCityName($city1);
         $forecastCity1Labels = json_encode(array_map(function ($value) {
@@ -105,6 +106,7 @@ Action: forecastChartAction()
         $forecastCity1Temps = json_encode(array_map(function ($value) {
             return Converter::kelvinToCelsius($value['main']['temp']);
         }, $forecastCity1->lists()));
+        
         $city2 = 'Berlin';
         $forecastCity2 = $openWeather->setType('Forecast')->getByCityName($city2);
         $forecastCity2Labels = json_encode(array_map(function ($value) {
@@ -113,6 +115,7 @@ Action: forecastChartAction()
         $forecastCity2Temps = json_encode(array_map(function ($value) {
             return Converter::kelvinToCelsius($value['main']['temp']);
         }, $forecastCity2->lists()));
+        
         $city3 = 'London';
         $forecastCity3 = $openWeather->setType('Forecast')->getByCityName($city3);
         $forecastCity3Labels = json_encode(array_map(function ($value) {
@@ -127,10 +130,12 @@ Action: forecastChartAction()
             'forecastCity1' => $forecastCity1,
             'forecastCity1Temps' => $forecastCity1Temps,
             'forecastCity1Labels' => $forecastCity1Labels,
+            
             'city2' => $city2,
             'forecastCity2' => $forecastCity2,
             'forecastCity2Temps' => $forecastCity2Temps,
             'forecastCity2Labels' => $forecastCity2Labels,
+            
             'city3' => $city3,
             'forecastCity3' => $forecastCity3,
             'forecastCity3Temps' => $forecastCity3Temps,
