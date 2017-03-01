@@ -7,6 +7,112 @@
 
 # **DwrOpenWeatherBundle**
 
+DwrOpenWeatherBundle is a simply wrapper bundle for [Open Weather API](https://openweathermap.org/). 
+In order to start please generate your personal ApiKey first.
+You can do it [here](http://openweathermap.org/appid). 
+
+## **Installation**
+
+When you have ApiKey, installation is a quick 3 steps process:
+
+1. Download DwrOpenWeatherBundle using composer
+2. Enable the Bundle
+3. Add routing to routing.yml in order to can open example in your browser
+
+### Step 1: Download DwrOpenWeatherBundle using composer
+
+Add DwrOpenWeatherBundle in version 2.0 to your composer.json and run 'composer update'
+
+```json
+{
+    "require": {
+        "dwr/openweather-bundle": "2.0"
+    }
+}
+```
+
+or download the bundle by running the command:
+
+``` bash
+$ php composer.phar require dwr/openweather-bundle
+```
+
+Composer will install the bundle into your project's `vendor/dwr/openweather-bundle` directory.
+
+### Step 2: Enable the bundle
+
+Enable the bundle in the kernel:
+
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Dwr\OpenWeatherBundle\DwrOpenWeatherBundle(),
+    );
+}
+```
+
+Add **APIKEY** to your config.yml
+
+``` yml
+    dwr_open_weather:
+        api_key: paste-your-api-key-here
+```
+
+### Step 3: Add routing to routing.yml in order to can open example in your browser
+
+``` yml
+dwr_open_weather:
+    resource: "@DwrOpenWeatherBundle/Controller/"
+    type:     annotation
+```
+
+Congratulations! You're ready to show weather widget in your symfony application.
+Example how **weather-basic-small** looks like you can find on: yours-application-url/weather-basic-small .
+
+## Usage
+### GET Weather
+
+In your Controller
+
+```php
+    public function indexAction()
+    {
+        $openWeather = $this->get('dwr_open_weather');
+        $weather = $openWeather->setType('Weather')->getByCityName('London');
+        var_dump($weather);
+    }
+```
+
+You can get weather from OpenWeather API by using:
+* getByCityName('London')
+* getByCityId('2643743')  
+  List of city ID city.list.json.gz can be downloaded [here](http://bulk.openweathermap.org/sample/)
+* getByGeographicCoordinates(-0.12574, 51.50853)
+
+### GET Forecast
+
+In your Controller
+
+```php
+    public function indexAction()
+    {
+        $openWeather = $this->get('dwr_open_weather');
+        $forecast = $openWeather->setType('Forecast')->getByCityName('London');
+        var_dump($forecast);
+    }
+```
+
+You can get forecast from OpenWeather API by using:
+* getByCityName('London')
+* getByCityId('2643743')  
+  List of city ID city.list.json.gz can be downloaded [here](http://bulk.openweathermap.org/sample/)
+* getByGeographicCoordinates(-0.12574, 51.50853)
+
 ## Examples
 
 Take a moment and check examples. Maybe you will find there a solution which you like.
