@@ -41,7 +41,7 @@ class OpenWeather
     {
         if (! $this->isType($type)) {
             throw new \InvalidArgumentException(
-                'Unknown OpenWeather type. Supported types are: ' . implode(', ', $this->getSupportedType())
+                'Unknown OpenWeather type. Supported types are: ' . implode(', ', array_keys($this->getSupportedType()))
             );
         }
 

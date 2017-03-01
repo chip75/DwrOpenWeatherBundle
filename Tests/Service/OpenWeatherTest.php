@@ -3,6 +3,8 @@ namespace Dwr\OpenWeather;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Dwr\OpenWeatherBundle\Service\Configuration;
+use Dwr\OpenWeatherBundle\Service\OpenWeather;
 
 class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,8 +13,8 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
         $actual = 'Weather';
         $config = new Configuration(['api_key' => '123']);
         $openWeather = new OpenWeather($config);
-        $this->assertTrue(in_array($actual, $openWeather->getSupportedType()));
-        $this->assertInstanceOf('Dwr\\OpenWeatherbundle\\OpenWeather', $openWeather);
+        $this->assertTrue(array_key_exists($actual, $openWeather->getSupportedType()));
+        $this->assertInstanceOf('Dwr\\OpenWeatherBundle\\Service\\OpenWeather', $openWeather);
     }
 
     public function testIfForecastIsSupportedType()
@@ -20,8 +22,8 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
         $actual = 'Forecast';
         $config = new Configuration(['api_key' => '123']);
         $openWeather = new OpenWeather($config);
-        $this->assertTrue(in_array($actual, $openWeather->getSupportedType()));
-        $this->assertInstanceOf('Dwr\\OpenWeatherbundle\\OpenWeather', $openWeather);
+        $this->assertTrue(array_key_exists($actual, $openWeather->getSupportedType()));
+        $this->assertInstanceOf('Dwr\\OpenWeatherBundle\\Service\\OpenWeather', $openWeather);
     }
 
     /**
@@ -31,7 +33,8 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
     public function testIfUnSupportedTypeThrowsException()
     {
         $config = new Configuration(['api_key' => '123']);
-        new OpenWeather('Dummy text', $config);
+        $openWeather = new OpenWeather($config);
+        $openWeather->setType('Dummy text');
     }
 
     public function testWeatherEntityInfill()
