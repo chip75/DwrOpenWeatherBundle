@@ -16,7 +16,7 @@ class DefaultController extends Controller
         $openWeather = $this->get('dwr_open_weather');
         $weather = $openWeather->setType('Weather')->getByCityName('London');
 
-        return $this->render('DwrOpenWeatherBundle:Default:index.html.twig', array(
+        return $this->render('DwrOpenWeatherBundle:Default:weather-basic-small.html.twig', array(
             'weather' => $weather,
         ));
     }
@@ -67,7 +67,8 @@ class DefaultController extends Controller
         }, $forecastCity->lists());
 
         return $this->render('DwrOpenWeatherBundle:Default:forecast-basic.html.twig', array(
-            'forecast' => $forecast,
+            'forecastCity' => $forecastCity,
+            'forecast' => $forecast
         ));
     }
 
