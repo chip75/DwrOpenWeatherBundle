@@ -7,7 +7,7 @@
 - Removed GobalWeather provider
 
 ### Changed
-- Changed weather API provider from Globalweather to OpenWeather
+- Changed weather API provider from GlobalWeather to OpenWeather.  
 GlobalWeather seems to have some issues and we can not relay on it anymore.
 So I decided to leave supporting GlobalWeather SOAP API and switch to RESTFUL OpenWeather.
 More details about OpenWeather you may find [here](http://openweathermap.org/).
