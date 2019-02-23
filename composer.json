@@ -13,8 +13,8 @@
     }
   ],
   "require": {
-    "symfony/framework-bundle": "3.*|^4.0",
-    "symfony/twig-bundle": "3.*|^4.0",
+    "symfony/framework-bundle": "^4.0",
+    "symfony/twig-bundle": "^4.0",
     "guzzle/guzzle": "~6.0"
   },
   "require-dev": {
